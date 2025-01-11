@@ -1,31 +1,35 @@
-# LHWn - Title
+# HW01 - C++ Classes
 
-_A quick blurb or sub-title text_
+This assignment explores classes in C++, as well as a common relationship between classes, namely, inheritance.
+
+In particular, this assignment has the student realize the following shape hierarchy.
+
+![hw01-class-diagram](images/hw01-class-diagram.png)
 
 ## Background
 
 Before proceeding with this lab, the student should take the time to read
 
-* this
-* that
-* and the other thing
+* [Appendix A Review of C++ Fundamentals](https://msu.vitalsource.com/reader/books/9780138122782/epubcfi/6/574%5B%3Bvnd.vst.idref%3DP7001018341000000000000000006D88%5D!/4/2%5BP7001018341000000000000000006D88%5D/2/2%5BP7001018341000000000000000006D89%5D/7:7%5Biew%2C%20of%5D)
+* [Appendix C C++ Documentation Systems](https://msu.vitalsource.com/reader/books/9780138122782/epubcfi/6/608%5B%3Bvnd.vst.idref%3DP70010183410000000000000000076A5%5D!/4/2%5BP70010183410000000000000000076A5%5D/2/2%5BP70010183410000000000000000076A6%5D/7:5%5B%2B%20D%2Cocu%5D)
+* [Chapter 1 Data Abstraction: The Walls](https://msu.vitalsource.com/reader/books/9780138122782/epubcfi/6/30%5B%3Bvnd.vst.idref%3DP7001018341000000000000000000784%5D!/4/2%5BP7001018341000000000000000000784%5D/2/2%5BP7001018341000000000000000000785%5D/7:0%5B%2C%20Da%5D)
+* [C++ Interlude 1 C++ Classes](https://msu.vitalsource.com/reader/books/9780138122782/epubcfi/6/46%5B%3Bvnd.vst.idref%3DP70010183410000000000000000009FA%5D!/4/2%5BP70010183410000000000000000009FA%5D/2/2%5BP70010183410000000000000000009FB%5D/7:0%5B%2C%20C%2B%5D)
 
 ## Objective
 
 Upon successful completion of this lab, the student has learned how to
 
-* do this
-* do that
-* do another thing
+* declare classes in C++
+* separate class specification from implementation through the use of header files and source files
+* realize a simple inheritance hierarchy
 
 ## Getting Started
 
-After accepting this assignment with the
-provided [GitHub Classroom Assignment link](https://classroom.github.com/fill-me-in), decide how you want to work with
+After accepting this assignment with the provided GitHub Classroom Assignment link, decide how you want to work with
 your newly created repository:
 
-- Using Codespaces directly in your web browser that employees the Visual Studio Code online IDE, or
-- Using the IDE of your choice on your local machine
+* Using Codespaces directly in your web browser that employees the Visual Studio Code online IDE, or
+* Using the IDE of your choice on your local machine
 
 ### Codespaces
 
@@ -88,33 +92,33 @@ _You may have to type the `q` character to get back to the command line prompt a
 
 ## Tasks
 
-This assignemtn consists of the following tasks:
+This assignment consists of the following tasks:
 
-- Task 1: <TODO: Declare me!>
-- Task 2: <TODO: Declare me!>
-- Task 3: <TODO: Declare me!>
-- Task 4: <TODO: Declare me - or erase me!>
-- Task 5: <TODO: Declare me - or erase me!>
+- Task 1: Declare the Shape abstract base class
+- Task 2: Declare the Circle class
+- Task 3: Implement the Circle class
+- Task 4: Declare the Rectangle class
+- Task 5: Implement the Rectangle class
 
-Pol, neuter abactor!
+### Task 1: Declare the Shape abstract base class
 
-### Task 1: <TODO: Declare me!>
+1. Create a new file named `shape.h` in the `include` directory. NOTE: You MUST name the file precisely as specified. If you do not, the corresponding unit tests for this task (and all remaining tasks) will fail to compile.
+2. Declare a class named `Shape` in this new header file. Make sure you surround the class declaration with macro guards that prevent multiple inclusions while building the project.
+3. Using the UML diagram provided above, declare the Shape interface accordingly.
 
-Ecce, urbs!
-
-### Task 2: <TODO: Declare me!>
-
-Ubi est dexter medicina?
-
-### Task 3: <TODO: Declare me!>
+### Task 2: Declare the Circle class
 
 Ubi est dexter medicina?
 
-### Task 4: <TODO: Declare me!>
+### Task 3: Implement the Circle class
 
 Ubi est dexter medicina?
 
-### Task 5: <TODO: Declare me!>
+### Task 4: Declare the Rectangle class
+
+Ubi est dexter medicina?
+
+### Task 5: Implement the Rectangle class
 
 Ubi est dexter medicina?
 
@@ -152,11 +156,11 @@ be granted for this oversight**.
 
 ### Due Date
 
-Your assignment submission is due by 11:59 PM, Saturday....
+Your assignment submission is due by 11:59 PM, Saturday, January 25, 2025.
 
 ### Grading Rubric
 
-This assignment is worth **3 points**.
+This assignment is worth **5 points**.
 
 | Criteria           | Exceeds Expectations         | Meets Expectations                  | Below Expectations                  | Failure                                        |
 |--------------------|------------------------------|-------------------------------------|-------------------------------------|------------------------------------------------|

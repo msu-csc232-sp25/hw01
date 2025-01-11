@@ -13,6 +13,7 @@
 
 #include <gtest/gtest.h>
 #include "csc232_test_utils.h"
+#include "shape.h"
 
 namespace csc232 {
     class Task1TestFixture : public CSC232BaseTestFixture {
@@ -32,7 +33,24 @@ namespace csc232 {
     }
 
 #else
-    // TODO: Add unit tests as needed for task 1
+    TEST_F(Task1TestFixture, ItCanDeclareShapes) {
+        EXPECT_NO_FATAL_FAILURE(
+                class AbstractShape : public Shape {
+                public:
+                    double perimeter() const override {
+                        return 42;
+                    }
+
+                    double area() const override {
+                        return 420;
+                    }
+                };
+
+                auto shape = new AbstractShape;
+                EXPECT_EQ(42, shape->perimeter());
+                EXPECT_EQ(420, shape->area());
+        );
+    }
 #endif
 
 } // end namespace csc232
