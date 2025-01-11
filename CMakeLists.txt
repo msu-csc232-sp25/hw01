@@ -1,14 +1,13 @@
 cmake_minimum_required(VERSION 3.16.3)
-set(IS_HW FALSE)
+set(IS_HW TRUE)
 set(CSC232_PROJECT_TYPE "lab")
+set(CSC232_PROJECT_NUM "01")
 if(IS_HW)
     set(CSC232_PROJECT_TYPE "hw")
-    # TODO: Don't forget to uncomment tasks 4&5 in classroom.yml
-    message("TODO: Don't forget to uncomment tasks 4&5 in classroom.yml")
 endif()
 
 message("CSC232_PROJECT_TYPE: ${CSC232_PROJECT_TYPE}")
-project(${CSC232_PROJECT_TYPE})
+project(${CSC232_PROJECT_TYPE}${CSC232_PROJECT_NUM})
 
 if (CMAKE_VERSION GREATER_EQUAL "3.24.0")
     cmake_policy(SET CMP0135 NEW)
