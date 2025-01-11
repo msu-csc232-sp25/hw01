@@ -95,10 +95,10 @@ _You may have to type the `q` character to get back to the command line prompt a
 This assignment consists of the following tasks:
 
 - Task 1: Declare the Shape abstract base class
-- Task 2: Declare the Square class
-- Task 3: Implement the Square class
-- Task 4: Declare the Circle class
-- Task 5: Implement the Circle class
+- Task 2: Declare the Circle class
+- Task 3: Implement the Circle class
+- Task 4: Declare the Rectangle class
+- Task 5: Implement the Rectangle class
 
 ### Task 1: Declare the Shape abstract base class
 
@@ -106,19 +106,19 @@ This assignment consists of the following tasks:
 2. Declare a class named `Shape` in this new header file. Make sure you surround the class declaration with macro guards that prevent multiple inclusions while building the project.
 3. Using the UML diagram provided above, declare the Shape interface accordingly.
 
-### Task 2: Declare the Square class
+### Task 2: Declare the Circle class
 
 Ubi est dexter medicina?
 
-### Task 3: Implement the Square class
+### Task 3: Implement the Circle class
 
 Ubi est dexter medicina?
 
-### Task 4: Declare the Circle class
+### Task 4: Declare the Rectangle class
 
 Ubi est dexter medicina?
 
-### Task 5: Implement the Circle class
+### Task 5: Implement the Rectangle class
 
 Ubi est dexter medicina?
 

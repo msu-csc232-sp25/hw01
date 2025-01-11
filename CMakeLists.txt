@@ -39,11 +39,16 @@ message("CMAKE_CXX_FLAGS =${CMAKE_CXX_FLAGS}")
 set(CMAKE_CXX_STANDARD 17)
 
 # Source sets for targets
-set(SRC_MAIN_FILES src/main/cpp/main.cpp)
-set(SRC_DEMO_FILES src/main/cpp/demo.cpp)
-set(SRC_TASK1_TEST_FILES src/test/cpp/task1_test.cpp)
-set(SRC_TASK2_TEST_FILES src/test/cpp/task2_test.cpp)
-set(SRC_TASK3_TEST_FILES src/test/cpp/task3_test.cpp)
+set(SRC_MAIN_FILES src/main/cpp/main.cpp
+        include/shape.h)
+set(SRC_DEMO_FILES src/main/cpp/demo.cpp
+        include/shape.h)
+set(SRC_TASK1_TEST_FILES src/test/cpp/task1_test.cpp
+        include/shape.h)
+set(SRC_TASK2_TEST_FILES src/test/cpp/task2_test.cpp
+        include/shape.h)
+set(SRC_TASK3_TEST_FILES src/test/cpp/task3_test.cpp
+        include/shape.h)
 
 # Setup Google Test
 set(GOOGLE_TEST_ARCHIVE "v1.14.0")
@@ -88,8 +93,10 @@ add_custom_command(TARGET task2_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_
 add_custom_command(TARGET task3_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task3_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
 
 if (IS_HW)
-    set(SRC_TASK4_TEST_FILES src/test/cpp/task4_test.cpp)
-    set(SRC_TASK5_TEST_FILES src/test/cpp/task5_test.cpp)
+    set(SRC_TASK4_TEST_FILES src/test/cpp/task4_test.cpp
+            include/shape.h)
+    set(SRC_TASK5_TEST_FILES src/test/cpp/task5_test.cpp
+            include/shape.h)
     add_executable(task4_test ${SRC_TASK4_TEST_FILES})
     add_executable(task5_test ${SRC_TASK5_TEST_FILES})
     target_link_libraries(task4_test GTest::gtest_main)
