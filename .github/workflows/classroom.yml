@@ -67,5 +67,4 @@ jobs:
           TASK4_TEST_RESULTS: "${{steps.task4_test.outputs.result}}"
           TASK5_TEST_RESULTS: "${{steps.task5_test.outputs.result}}"
         with:
-          #          runners: task1_test,task2_test,task3_test
           runners: task1_test,task2_test,task3_test,task4_test,task5_test
