@@ -18,8 +18,8 @@ jobs:
         uses: classroom-resources/autograding-command-grader@v1
         with:
           test-name: task1_test
-          setup-command: 'cmake -B ./build && cmake --build ./build --target task1_test'
-          command: ./build/task1_test
+          setup-command: 'cmake -B ./build && cmake --build ./build --target task1_test && cp ./include/shape.h ./build'
+          command: cd ./build && ./task1_test
           timeout: 10
           max-score: 1
       - name: task2_test
@@ -28,7 +28,7 @@ jobs:
         with:
           test-name: task2_test
           setup-command: 'cmake -B ./build && cmake --build ./build --target task2_test'
-          command: ./build/task2_test
+          command: cd ./build && ./task2_test
           timeout: 10
           max-score: 1
       - name: task3_test
@@ -46,7 +46,7 @@ jobs:
         with:
           test-name: task4_test
           setup-command: 'cmake -B ./build && cmake --build ./build --target task4_test'
-          command: ./build/task4_test
+          command: cd ./build && ./task4_test
           timeout: 10
           max-score: 1
       - name: task5_test
@@ -67,5 +67,4 @@ jobs:
           TASK4_TEST_RESULTS: "${{steps.task4_test.outputs.result}}"
           TASK5_TEST_RESULTS: "${{steps.task5_test.outputs.result}}"
         with:
-#          runners: task1_test,task2_test,task3_test
           runners: task1_test,task2_test,task3_test,task4_test,task5_test
