@@ -22,7 +22,7 @@ if (MSVC)
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4")
     endif ()
     message("Compiler: MSVC")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /std:c++14")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /Zi /std:c++20")
 elseif (CMAKE_COMPILER_IS_GNUCC OR CMAKE_COMPILER_IS_GNUCXX)
     # Update if necessary
     message("Compiler: gnucc or gnucxx")
@@ -36,19 +36,16 @@ endif ()
 message("CMAKE_CXX_FLAGS =${CMAKE_CXX_FLAGS}")
 
 # GoogleTest requires at least C++11
-set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD 20)
 
 # Source sets for targets
-set(SRC_MAIN_FILES src/main/cpp/main.cpp
-        include/shape.h)
-set(SRC_DEMO_FILES src/main/cpp/demo.cpp
-        include/shape.h)
+set(SRC_MAIN_FILES src/main/cpp/main.cpp)
+set(SRC_DEMO_FILES src/main/cpp/demo.cpp)
 set(SRC_TASK1_TEST_FILES src/test/cpp/task1_test.cpp
-        include/shape.h)
-set(SRC_TASK2_TEST_FILES src/test/cpp/task2_test.cpp
-        include/shape.h)
+                         include/shape.h)
+set(SRC_TASK2_TEST_FILES src/test/cpp/task2_test.cpp)
 set(SRC_TASK3_TEST_FILES src/test/cpp/task3_test.cpp
-        include/shape.h)
+                         src/main/cpp/circle.cpp)
 
 # Setup Google Test
 set(GOOGLE_TEST_ARCHIVE "v1.14.0")
@@ -86,17 +83,19 @@ target_include_directories(task2_test PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include $
 target_include_directories(task3_test PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include ${CMAKE_CURRENT_LIST_DIR}/src/main/cpp)
 
 # add custom commands that copy data input files to target working directories
-add_custom_command(TARGET main PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/main/resources/main_data.txt ${CMAKE_CURRENT_BINARY_DIR})
-add_custom_command(TARGET demo PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/main/resources/demo_data.txt ${CMAKE_CURRENT_BINARY_DIR})
-add_custom_command(TARGET task1_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task1_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
-add_custom_command(TARGET task2_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task2_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
-add_custom_command(TARGET task3_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task3_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET main PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/main/resources/main_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET demo PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/main/resources/demo_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task1_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task1_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task1_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/include/shape.h ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task2_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/include/circle.h ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task1_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/include/shape.h ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task2_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task2_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+add_custom_command(TARGET task3_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task3_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
 
 if (IS_HW)
-    set(SRC_TASK4_TEST_FILES src/test/cpp/task4_test.cpp
-            include/shape.h)
+    set(SRC_TASK4_TEST_FILES src/test/cpp/task4_test.cpp)
     set(SRC_TASK5_TEST_FILES src/test/cpp/task5_test.cpp
-            include/shape.h)
+                             src/main/cpp/rectangle.cpp)
     add_executable(task4_test ${SRC_TASK4_TEST_FILES})
     add_executable(task5_test ${SRC_TASK5_TEST_FILES})
     target_link_libraries(task4_test GTest::gtest_main)
@@ -105,8 +104,9 @@ if (IS_HW)
     gtest_discover_tests(task5_test)
     target_include_directories(task4_test PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include ${CMAKE_CURRENT_LIST_DIR}/src/main/cpp)
     target_include_directories(task5_test PUBLIC ${CMAKE_CURRENT_LIST_DIR}/include ${CMAKE_CURRENT_LIST_DIR}/src/main/cpp)
-    add_custom_command(TARGET task4_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task4_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
-    add_custom_command(TARGET task5_test PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task5_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+    add_custom_command(TARGET task4_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task4_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
+    add_custom_command(TARGET task4_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/include/rectangle.h ${CMAKE_CURRENT_BINARY_DIR})
+    add_custom_command(TARGET task5_test PRE_LINK COMMAND ${CMAKE_COMMAND} -E copy_if_different ${CMAKE_CURRENT_LIST_DIR}/src/test/resources/task5_test_data.txt ${CMAKE_CURRENT_BINARY_DIR})
 endif ()
 
 # first we can indicate the documentation build as an option and set it to OFF by default

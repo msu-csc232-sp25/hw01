@@ -2,22 +2,21 @@
  * CSC232 - Data Structures
  * Missouri State University, Spring 2025
  *
- * @file    shape.h
+ * @file    circle.cpp
  * @author  Jim Daehn <jdaehn@missouristate.edu>
- * @brief   Abstract base class for the shape class hierarchy.
+ * @brief   Circle implementation.
  * @version 1.0.0
  * @date    01/01/2025
  *
  * @copyright Copyright (c) 2025 James R. Daehn
  */
 
-#ifndef HW01_SHAPE_H
-#define HW01_SHAPE_H
+#include <cmath>
+#include <numbers>
+#include "circle.h"
 
 namespace csc232 {
 
-    // TODO: Task 1 - Declare the abstract base class as prescribed below:
+    // TODO: Task 3 - Implement member functions as prescribed below
 
 } // csc232
-
-#endif // HW01_SHAPE_H

@@ -2,22 +2,24 @@
  * CSC232 - Data Structures
  * Missouri State University, Spring 2025
  *
- * @file    shape.h
+ * @file    rectangle.h
  * @author  Jim Daehn <jdaehn@missouristate.edu>
- * @brief   Abstract base class for the shape class hierarchy.
+ * @brief   Rectangle specification.
  * @version 1.0.0
  * @date    01/01/2025
  *
  * @copyright Copyright (c) 2025 James R. Daehn
  */
 
-#ifndef HW01_SHAPE_H
-#define HW01_SHAPE_H
+#ifndef HW01_RECTANGLE_H
+#define HW01_RECTANGLE_H
+
+#include "shape.h"
 
 namespace csc232 {
 
-    // TODO: Task 1 - Declare the abstract base class as prescribed below:
+    // TODO: Task 4 - Implement the Shape interface as prescribed below:
 
 } // csc232
 
-#endif // HW01_SHAPE_H
+#endif //HW01_RECTANGLE_H

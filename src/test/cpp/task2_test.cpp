@@ -33,6 +33,33 @@ namespace csc232 {
 
 #else
     // TODO: Add unit tests as needed for task 2
+    TEST_F(Task2TestFixture, ItDeclaresCircleDerivedClass) {
+        EXPECT_TRUE(isClassDerivedFromBase("circle.h", "csc232", "Circle", "Shape"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresConstructorMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "Circle"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresPerimeterMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "perimeter"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresAreaMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "area"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresGetRadiusMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "get_radius"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresSetRadiusMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "set_radius"));
+    }
+
+    TEST_F(Task2TestFixture, ItDeclaresIsUnitCircleMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("circle.h", "csc232", "Circle", "is_unit_circle"));
+    }
 #endif
 
 } // end namespace csc232

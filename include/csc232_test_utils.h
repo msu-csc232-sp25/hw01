@@ -15,6 +15,7 @@
 #define CSC232_TEST_UTILS_H
 
 #include <gtest/gtest.h>
+#include <regex>
 #include "csc232.h"
 
 namespace csc232 {
@@ -72,6 +73,99 @@ namespace csc232 {
 
         virtual void AdditionalTearDown() {
             /* template method for any customized additional setup */
+        }
+
+        virtual bool isClassDeclared(const std::string &filePath, const std::string &className) {
+            std::ifstream file(filePath);
+            if (!file.is_open()) {
+                std::cerr << "Unable to open file\n";
+                return false;
+            }
+
+            std::string line;
+            std::regex classPattern("\\bclass\\s+" + className + "\\b");
+            while (std::getline(file, line)) {
+                if (std::regex_search(line, classPattern)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        virtual bool isClassInNamespaceDeclared(const std::string &filePath, const std::string &namespaceName,
+                                                const std::string &className) {
+            std::ifstream file(filePath);
+            if (!file.is_open()) {
+                std::cerr << "Unable to open file\n";
+                return false;
+            }
+
+            std::string line;
+            std::regex namespacePattern("\\bnamespace\\s+" + namespaceName + "\\b");
+            std::regex classPattern("\\bclass\\s+" + className + "\\b");
+            bool inNamespace = false;
+
+            while (std::getline(file, line)) {
+                if (std::regex_search(line, namespacePattern)) {
+                    inNamespace = true;
+                }
+                if (inNamespace && std::regex_search(line, classPattern)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        virtual bool isClassDerivedFromBase(const std::string &filePath, const std::string &namespaceName,
+                                            const std::string &className, const std::string &baseClassName) {
+            std::ifstream file(filePath);
+            if (!file.is_open()) {
+                std::cerr << "Unable to open file\n";
+                return false;
+            }
+
+            std::string line;
+            std::regex namespacePattern("\\bnamespace\\s+" + namespaceName + "\\b");
+            std::regex classPattern("\\bclass\\s+" + className + "\\s*:\\s*public\\s+" + baseClassName + "\\b");
+            bool inNamespace = false;
+
+            while (std::getline(file, line)) {
+                if (std::regex_search(line, namespacePattern)) {
+                    inNamespace = true;
+                }
+                if (inNamespace && std::regex_search(line, classPattern)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        virtual bool isMethodDeclaredInClass(const std::string& filePath, const std::string& namespaceName, const std::string& className, const std::string& methodName) {
+            std::ifstream file(filePath);
+            if (!file.is_open()) {
+                std::cerr << "Unable to open file\n";
+                return false;
+            }
+
+            std::string line;
+            std::regex namespacePattern("\\bnamespace\\s+" + namespaceName + "\\b");
+            std::regex classPattern("\\bclass\\s+" + className + "\\b");
+            std::regex methodPattern("\\b" + methodName + "\\s*\\(");
+            bool inNamespace = false;
+            bool inClass = false;
+
+            while (std::getline(file, line)) {
+                if (std::regex_search(line, namespacePattern)) {
+                    inNamespace = true;
+                }
+                if (inNamespace && std::regex_search(line, classPattern)) {
+                    inClass = true;
+                }
+                if (inClass && std::regex_search(line, methodPattern)) {
+                    return true;
+                }
+            }
+            return false;
         }
 
         // Reusable objects for each unit test in this test fixture and any of its children
