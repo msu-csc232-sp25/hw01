@@ -13,9 +13,11 @@
 
 #include <gtest/gtest.h>
 #include "csc232_test_utils.h"
-#include "shape.h"
 
 namespace csc232 {
+    static const double EXPECTED_PERIMETER{42};
+    static const double EXPECTED_AREA{420};
+
     class Task1TestFixture : public CSC232BaseTestFixture {
     public:
         Task1TestFixture() = default;
@@ -33,23 +35,16 @@ namespace csc232 {
     }
 
 #else
-    TEST_F(Task1TestFixture, ItCanDeclareShapes) {
-        EXPECT_NO_FATAL_FAILURE(
-                class AbstractShape : public Shape {
-                public:
-                    double perimeter() const override {
-                        return 42;
-                    }
+    TEST_F(Task1TestFixture, ItDeclaresShapeBaseClass) {
+        EXPECT_TRUE(isClassInNamespaceDeclared("shape.h", "csc232", "Shape"));
+    }
 
-                    double area() const override {
-                        return 420;
-                    }
-                };
+    TEST_F(Task1TestFixture, ItDeclaresPerimeterMethod) {
+        EXPECT_TRUE(isMethodDeclaredInClass("shape.h", "csc232", "Shape", "perimeter"));
+    }
 
-                auto shape = new AbstractShape;
-                EXPECT_EQ(42, shape->perimeter());
-                EXPECT_EQ(420, shape->area());
-        );
+    TEST_F(Task1TestFixture, ItDeclaresAreaMethod) {
+        EXPECT_TRUE(isMethodDeclaredInClass("shape.h", "csc232", "Shape", "area"));
     }
 #endif
 

@@ -16,8 +16,8 @@
 
 namespace csc232 {
 
-    // TODO: Task 1 - Declare Shape abstract base class below
+    // TODO: Task 1 - Declare the abstract base class as prescribed below:
 
 } // csc232
 
-#endif //HW01_SHAPE_H
+#endif // HW01_SHAPE_H

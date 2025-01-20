@@ -33,6 +33,42 @@ namespace csc232 {
 
 #else
     // TODO: Add unit tests as needed for task 4
+    TEST_F(Task4TestFixture, ItDeclaresRectangleDerivedClass) {
+        EXPECT_TRUE(isClassDerivedFromBase("rectangle.h", "csc232", "Rectangle", "Shape"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresConstructorMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "Rectangle"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresPerimeterMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "perimeter"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresAreaMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "area"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresGetLengthMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "get_length"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresSetLengthMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "set_length"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresGetWidthMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "get_width"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresSetWidthMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "set_width"));
+    }
+
+    TEST_F(Task4TestFixture, ItDeclaresIsSquareMemberFunction) {
+        EXPECT_TRUE(isMethodDeclaredInClass("rectangle.h", "csc232", "Rectangle", "is_square"));
+    }
+
 #endif
 
 } // end namespace csc232

@@ -6,6 +6,8 @@ In particular, this assignment has the student realize the following shape hiera
 
 ![hw01-class-diagram](images/hw01-class-diagram.png)
 
+#### Figure 1: Shapes class inheritance hierarchy
+
 ## Background
 
 Before proceeding with this lab, the student should take the time to read
@@ -102,25 +104,57 @@ This assignment consists of the following tasks:
 
 ### Task 1: Declare the Shape abstract base class
 
-1. Create a new file named `shape.h` in the `include` directory. NOTE: You MUST name the file precisely as specified. If you do not, the corresponding unit tests for this task (and all remaining tasks) will fail to compile.
-2. Declare a class named `Shape` in this new header file. Make sure you surround the class declaration with macro guards that prevent multiple inclusions while building the project.
-3. Using the UML diagram provided above, declare the Shape interface accordingly.
+If you have not done so already, create new branch named `develop` within in which to commit your changes.
+
+In this first task, you are to create the base of the Shapes hierarchy. Namely, you'll be declaring an abstract base class as prescribed in the UML class diagram shown above in [Figure 1](#figure-1-shapes-class-inheritance-hierarchy).
+
+NOTE: The `Shape` abstract class must be declared _inside_ the given `csc232` namespace.
+
+1. Locate the `TEST_TASK1` macro definition in the [csc232.h](include/csc232.h) header file and toggle it from `FALSE` to `TRUE`.
+2. Open the header file named `shape.h` in the `include` directory and locate the `TODO: Task 1 - Declare Shape abstract base class below` comment.
+3. In the space below this `TODO` comment, and using the UML diagram provided above, declare the `Shape` interface accordingly.
+4. When you believe you have successfully completed this task, verify your solution by executing the `task1_test` target.
+5. Once satisfied with the results of the unit tests for this task, stage, commit, and push your changes to GitHub.
 
 ### Task 2: Declare the Circle class
 
-Ubi est dexter medicina?
+In task 2, you are to implement the `Shape` interface by extending the `Shape` class into a new class named `Circle`.
+
+1. Locate the `TEST_TASK2` macro definition in the [csc232.h](include/csc232.h) header file and toggle it from `FALSE` to `TRUE`.
+2. Open the header file named `circle.h` in the `include` directory and locate the `TODO: Task 2 - Implement the Shape interface as prescribed below:` comment.
+3. In the space below this `TODO` comment, and using the UML diagram provided above, declare the `Circle` interface accordingly.
+4. When you believe you have successfully completed this task, verify your solution by executing the `task2_test` target.
+5. Once satisfied with the results of the unit tests for this task, stage, commit, and push your changes to GitHub.
 
 ### Task 3: Implement the Circle class
 
-Ubi est dexter medicina?
+In task 3, you are to implement the `Circle` class methods.
+
+1. Locate the `TEST_TASK3` macro definition in the [csc232.h](include/csc232.h) header file and toggle it from `FALSE` to `TRUE`.
+2. Open the source file named `circle.cpp` in the `src/main/cpp` directory and locate the `TODO: Task 3 - Implement member functions as prescribed below` comment.
+3. In the space below this `TODO` comment, implement each of the member functions that were declared in the `Circle` interface accordingly.
+4. When you believe you have successfully completed this task, verify your solution by executing the `task3_test` target.
+5. Once satisfied with the results of the unit tests for this task, stage, commit, and push your changes to GitHub.
 
 ### Task 4: Declare the Rectangle class
 
-Ubi est dexter medicina?
+In task 4, you are to again implement the `Shape` interface by extending the `Shape` class into a new class named `Rectangle`.
+
+1. Locate the `TEST_TASK4` macro definition in the [csc232.h](include/csc232.h) header file and toggle it from `FALSE` to `TRUE`.
+2. Open the header file named `square.h` in the `include` directory and locate the `TODO: Task 4 - Implement the Shape interface as prescribed below:` comment.
+3. In the space below this `TODO` comment, and using the UML diagram provided above, declare the `Circle` interface accordingly.
+4. When you believe you have successfully completed this task, verify your solution by executing the `task4_test` target.
+5. Once satisfied with the results of the unit tests for this task, stage, commit, and push your changes to GitHub.
 
 ### Task 5: Implement the Rectangle class
 
-Ubi est dexter medicina?
+Finally, in task 5, you are to implement the `Rectangle` class.
+
+1. Locate the `TEST_TASK5` macro definition in the [csc232.h](include/csc232.h) header file and toggle it from `FALSE` to `TRUE`.
+2. Open the source file named `rectangle.cpp` in the `src/main/cpp` directory and locate the `TODO: Task 5 - Implement member functions as prescribed below` comment.
+3. In the space below this `TODO` comment, implement each of the member functions that were declared in the `Rectangle` interface accordingly.
+4. When you believe you have successfully completed this task, verify your solution by executing the `task5_test` target.
+5. Once satisfied with the results of the unit tests for this task, stage, commit, and push your changes to GitHub.
 
 ## Submission Details
 
